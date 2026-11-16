@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Secure Student Vault</string>
+    <string name="header_kicker">SE405 · Mobile and Persuasive Computing</string>
+    <string name="header_subtitle">Fingerprint Security: sinh trắc học chỉ xác thực cục bộ để TEE mở khóa AES-256-GCM. Vân tay không phải thuật toán mã hóa.</string>
+    <string name="header_flow">BiometricPrompt.CryptoObject  →  AndroidKeyStore (TEE)  →  AES-256-GCM</string>
+
+    <string name="section_encrypt_kicker">01 · CHIỀU A</string>
+    <string name="section_encrypt_title">Nhập liệu và mã hóa</string>
+    <string name="default_plaintext">HELLO MOBILE</string>
+    <string name="action_encrypt">Mã hóa &amp; Lưu (Encrypt)</string>
+    <string name="status_ready">Sẵn sàng. Khóa AES-256 được tạo trong AndroidKeyStore ở lần mã hóa đầu tiên.</string>
+    <string name="status_need_plaintext">Nhập nội dung trước khi mã hóa.</string>
+    <string name="status_encrypted">Đã lưu Ciphertext và IV vào SharedPreferences. Đĩa không chứa bản rõ.</string>
+
+    <string name="section_inspector_kicker">02 · RAW STORAGE INSPECTOR</string>
+    <string name="section_inspector_title">Dữ liệu thô dưới bộ nhớ</string>
+    <string name="label_alias">AndroidKeyStore alias</string>
+    <string name="label_iv">IV (Base64.NO_WRAP)</string>
+    <string name="label_ciphertext">Ciphertext (Base64.NO_WRAP)</string>
+    <string name="inspector_empty">(trống)</string>
+    <string name="alias_present">%1$s\nTrạng thái alias: CÓ MẶT</string>
+    <string name="alias_absent">%1$s\nTrạng thái alias: KHÔNG CÓ MẶT</string>
+    <string name="inspector_note">Dữ liệu lưu trên đĩa ở dạng bản mã vô nghĩa, không thể giải mã nếu thiếu khóa trong phần cứng TEE.</string>
+
+    <string name="section_decrypt_kicker">03 · CHIỀU B</string>
+    <string name="section_decrypt_title">Xác thực và giải mã</string>
+    <string name="action_decrypt">Mở ghi chú (Decrypt)</string>
+    <string name="result_idle_title">CHƯA GIẢI MÃ</string>
+    <string name="result_idle_body">Bản rõ chỉ xuất hiện sau khi TEE cho phép dùng khóa. Bấm Mở ghi chú để chạy chiều B.</string>
+    <string name="result_success">XÁC THỰC THÀNH CÔNG</string>
+    <string name="result_denied">ACCESS DENIED</string>
+    <string name="result_invalidated">CẢNH BÁO BẢO MẬT: Khóa phần cứng đã tự hủy do phát hiện vân tay mới được thêm vào thiết bị!</string>
+    <string name="result_invalidated_detail">Ciphertext vẫn nằm trong SharedPreferences, nhưng AndroidKeyStore từ chối Cipher.init. Bấm Reset Key &amp; Vault để tạo khóa mới. Khóa mới không giải được bản mã cũ.</string>
+    <string name="result_after_encrypt_title">BẢN MÃ ĐÃ LƯU</string>
+    <string name="result_after_encrypt_body">Plaintext không được ghi xuống đĩa. Muốn thấy lại HELLO MOBILE, hãy bấm Mở ghi chú và xác thực vân tay.</string>
+    <string name="result_no_ciphertext_title">CHƯA CÓ BẢN MÃ</string>
+    <string name="result_no_ciphertext_body">SharedPreferences chưa có Ciphertext và IV. Hãy chạy Chiều A trước.</string>
+    <string name="result_bad_record">Bản ghi trong SharedPreferences không đọc được. Hãy Reset Key &amp; Vault rồi mã hóa lại.</string>
+    <string name="result_missing_crypto_object">CryptoObject không trả về Cipher đã được TEE ủy quyền. doFinal không được gọi.</string>
+    <string name="result_user_not_authenticated">TEE không cấp HardwareAuthToken cho operation này. KeyMint từ chối doFinal.</string>
+    <string name="result_tag_mismatch_title">BẢN MÃ KHÔNG HỢP LỆ</string>
+    <string name="result_tag_mismatch_body">AES-GCM từ chối bản mã vì authentication tag không khớp.</string>
+    <string name="result_auth_failed_body">Vân tay không khớp. Prompt vẫn mở để thử lại. TEE chưa cho dùng khóa.</string>
+    <string name="result_auth_error_body">Xác thực dừng: %1$s</string>
+    <string name="result_keystore_title">KHÔNG DÙNG ĐƯỢC KHÓA</string>
+    <string name="result_missing_key">Chưa có khóa se405_student_vault_key trong AndroidKeyStore. Hãy mã hóa một lần để tạo khóa, hoặc Reset rồi làm lại.</string>
+
+    <string name="action_reset">Reset Key &amp; Vault</string>
+    <string name="status_reset">Đã xóa alias trong AndroidKeyStore và bản mã trong SharedPreferences.</string>
+    <string name="status_reset_failed">Reset chưa xong: %1$s</string>
+
+    <string name="action_cancel">Hủy</string>
+    <string name="prompt_encrypt_title">Mã hóa ghi chú</string>
+    <string name="prompt_encrypt_subtitle">Xác thực để AndroidKeyStore dùng khóa AES</string>
+    <string name="prompt_encrypt_description">Sinh trắc học không mã hóa dữ liệu. TEE xác thực xong mới cho phép Cipher.doFinal.</string>
+    <string name="prompt_decrypt_title">Mở ghi chú</string>
+    <string name="prompt_decrypt_subtitle">Xác thực để giải mã AES-256-GCM</string>
+    <string name="prompt_decrypt_description">Cipher được ủy quyền qua CryptoObject. Không có nhánh if (success).</string>
+
+    <string name="status_none_enrolled">Chưa có vân tay mạnh (BIOMETRIC_STRONG). Vào Settings → Security → Fingerprint, đăng ký vân tay, rồi thử lại. Trên emulator, lúc máy báo chạm cảm biến hãy chạy: adb -e emu finger touch 1</string>
+    <string name="status_no_hardware">Thiết bị không có cảm biến sinh trắc mạnh. Hãy dùng emulator hoặc máy có fingerprint Class 3.</string>
+    <string name="status_hw_unavailable">Cảm biến sinh trắc đang bận hoặc chưa sẵn sàng. Thử lại sau vài giây.</string>
+    <string name="status_biometric_unavailable">BiometricManager.canAuthenticate trả về mã %1$d. Cần BIOMETRIC_STRONG trước khi mở khóa phần cứng.</string>
+    <string name="status_setup_title">CHƯA SẴN SÀNG</string>
+    <string name="footer_note">On-device only. Không có server. Khóa không bao giờ rời TEE.</string>
+</resources>

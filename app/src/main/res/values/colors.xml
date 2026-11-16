@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="md_primary">#0B3D5C</color>
+    <color name="md_primary_dark">#07283D</color>
+    <color name="md_secondary">#0F766E</color>
+    <color name="md_on_primary">#FFFFFF</color>
+    <color name="md_background">#E7EEF4</color>
+    <color name="md_surface">#FFFFFF</color>
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+    <color name="input_bg">#F8FAFC</color>
+    <color name="note_bg">#FFF7ED</color>
+    <color name="note_text">#9A3412</color>
+    <color name="mono_bg">#0F172A</color>
+    <color name="mono_text">#E2E8F0</color>
+    <color name="success_bg">#E8F5E9</color>
+    <color name="success_title">#1B5E20</color>
+    <color name="success_body">#14532D</color>
+    <color name="denied_bg">#FFEBEE</color>
+    <color name="denied_title">#B71C1C</color>
+    <color name="denied_body">#7F1D1D</color>
+    <color name="invalid_bg">#7F1D1D</color>
+    <color name="invalid_title">#FFFFFF</color>
+    <color name="invalid_body">#FEE2E2</color>
+    <color name="neutral_bg">#E8EEF4</color>
+    <color name="neutral_title">#0B3D5C</color>
+    <color name="neutral_body">#334155</color>
+    <color name="warn_bg">#FFF7ED</color>
+    <color name="warn_title">#9A3412</color>
+    <color name="warn_body">#7C2D12</color>
+    <color name="reset">#9A3412</color>
+    <color name="status_ok">#166534</color>
+</resources>
